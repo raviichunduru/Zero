@@ -111,7 +111,7 @@ Key tools that we will use in other frameworks, that will all extend this core f
 
 ## end-to-end test automation process
 
-![end-to-end-test-process](./drawings/end-to-end-test-workflow.png)
+![end-to-end-test-process](./images/end-to-end-test-workflow.png)
 
 ## References
 

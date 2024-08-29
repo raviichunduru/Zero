@@ -28,7 +28,6 @@ public class TestSandbox {
       assertTrue(true, "time is even");
     } else {
       assertTrue(false, "time is odd");
-
     }
   }
 }

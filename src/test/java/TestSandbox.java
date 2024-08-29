@@ -16,6 +16,5 @@ public class TestSandbox {
   void assertThatDayIsADay() throws InterruptedException {
     assertEquals("day", "day","day is a day");
     Thread.sleep(2000);
-
-  }
+    
 }

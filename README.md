@@ -7,7 +7,7 @@ for any/and all kind of test automation frameworks (such as API, Browser, Mobile
 ![open issues](https://img.shields.io/github/issues/raviichunduru/Zero)
 ![forks](https://img.shields.io/github/forks/raviichunduru/Zero)
 ![stars](https://img.shields.io/github/stars/raviichunduru/Zero)
-![license](https://img.shields.io/github/license/raviichunduru/Zero?style=flat-square)
+![license](https://img.shields.io/github/license/raviichunduru/Zero)
 ![languages](https://img.shields.io/github/languages/count/raviichunduru/Zero)
 
 ### Requiring (one time) manual setup by user

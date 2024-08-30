@@ -35,10 +35,10 @@ public class TestEnvFactory {
       TestEnv testEnv = config.getEnum(TestEnv.class, "TEST_ENV");
       String testEnvName = testEnv.toString().toLowerCase();
 
-      String path = String.format("src/main/resources/%s", testEnvName);
-      log.info("path : {}",path);
+      String envPath = String.format("src/main/resources/%s", testEnvName);
+      log.info("envPath : {}",envPath);
 
-      File testEnvDir = new File(path);
+      File testEnvDir = new File(envPath);
 
       for (File file : testEnvDir.listFiles()) {
         String envFilePath = String.format("%s/%s", testEnvName, file.getName());

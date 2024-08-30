@@ -25,21 +25,27 @@ public class TestEnvFactory {
   }
 
   private Config setConfig() {
-    log.info("setConfig called");
+    try {
+      log.info("setConfig called");
 
-    // Standard config load behaviour : https://github.com/lightbend/config?tab=readme-ov-file#standard-behavior
+      // Standard config load behaviour : https://github.com/lightbend/config?tab=readme-ov-file#standard-behavior
 
-    config = ConfigFactory.load();
+      config = ConfigFactory.load();
 
-    TestEnv testEnv = config.getEnum(TestEnv.class, "TEST_ENV");
+      TestEnv testEnv = config.getEnum(TestEnv.class, "TEST_ENV");
 
-    String testEnvDirPath = String.format("src/main/resources/%s", testEnv);
-    File testEnvDir = new File(testEnvDirPath);
+      String testEnvDirPath = String.format("src/main/resources/%s", testEnv);
+      File testEnvDir = new File(testEnvDirPath);
 
-    for (File file : testEnvDir.listFiles()) {
-      Config childConfig = ConfigFactory.load(String.format("%s/%s", testEnv, file.getName()));
-      config = config.withFallback(childConfig);
+      for (File file : testEnvDir.listFiles()) {
+        Config childConfig = ConfigFactory.load(String.format("%s/%s", testEnv, file.getName()));
+        config = config.withFallback(childConfig);
+      }
+      return config;
     }
-    return config;
+    catch(Exception exception) {
+      exception.printStackTrace();
+      throw new IllegalStateException("couldn't parse config");
+    }
   }
 }

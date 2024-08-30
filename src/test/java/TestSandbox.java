@@ -14,8 +14,6 @@ public class TestSandbox {
 
   @Test
   void assertThatWeCanGetUserConfig() {
-
-
     log.info(CONFIG.getString("TEST_ENV"));
     log.info(CONFIG.getString("CREATE_EMPLOYEE_ENDPOINT"));
     log.info(CONFIG.getString("ADMIN_LOGIN"));

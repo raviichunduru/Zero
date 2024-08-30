@@ -25,23 +25,23 @@ public class TestEnvFactory {
   }
 
   private Config setConfig() {
+    log.info("Call setConfig only once for the whole test run!");
+
     try {
-      log.info("setConfig called");
 
-      // Standard config load behaviour : https://github.com/lightbend/config?tab=readme-ov-file#standard-behavior
-
+      // Standard config load behavior (loads common config from application.conf file)
+      // https://github.com/lightbend/config#standard-behavior
       config = ConfigFactory.load();
 
       TestEnv testEnv = config.getEnum(TestEnv.class, "TEST_ENV");
-      String testEnvName = testEnv.toString().toLowerCase();
 
-      String envPath = String.format("src/main/resources/%s", testEnvName);
+      String envPath = String.format("src/main/resources/%s", testEnv.getValue());
       log.info("envPath : {}",envPath);
 
       File testEnvDir = new File(envPath);
 
       for (File file : testEnvDir.listFiles()) {
-        String envFilePath = String.format("%s/%s", testEnvName, file.getName());
+        String envFilePath = String.format("%s/%s", testEnv.getValue(), file.getName());
         log.info("envFilePath : {}",envFilePath);
         Config childConfig = ConfigFactory.load(envFilePath);
         config = config.withFallback(childConfig);

@@ -3,14 +3,12 @@
 Zero is our feature rich, core test automation framework, that can be used as an underlying automation framework
 for any/and all kind of test automation frameworks (such as API, Browser, Mobile App).
 
-![build status](https://img.shields.io/github/actions/workflow/status/pramodkumaryadav/zero/trigger-tests-on-pull-request.yml?logo=GitHub)
-![open issues](https://img.shields.io/github/issues/PramodKumarYadav/zero)
-![forks](https://img.shields.io/github/forks/PramodKumarYadav/zero)
-![stars](https://img.shields.io/github/stars/PramodKumarYadav/zero)
-![license](https://img.shields.io/github/license/PramodKumarYadav/zero?style=flat-square)
-![languages](https://img.shields.io/github/languages/count/pramodkumaryadav/zero)
-
-![info](https://img.shields.io/static/v1?label=with-love&message=from-power-tester&color=blue?style=plastic&logo=appveyor)
+![build status](https://img.shields.io/github/actions/workflow/status/raviichunduru/Zero/testing-test-framework.yml?logo=GitHub)
+![open issues](https://img.shields.io/github/issues/raviichunduru/Zero)
+![forks](https://img.shields.io/github/forks/raviichunduru/Zero)
+![stars](https://img.shields.io/github/stars/raviichunduru/Zero)
+![license](https://img.shields.io/github/license/raviichunduru/Zero)
+![languages](https://img.shields.io/github/languages/count/raviichunduru/Zero)
 
 ### Requiring (one time) manual setup by user
 

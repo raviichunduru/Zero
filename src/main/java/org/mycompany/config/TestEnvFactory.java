@@ -33,12 +33,17 @@ public class TestEnvFactory {
       config = ConfigFactory.load();
 
       TestEnv testEnv = config.getEnum(TestEnv.class, "TEST_ENV");
+      String testEnvName = testEnv.toString().toLowerCase();
 
-      String testEnvDirPath = String.format("src/main/resources/%s", testEnv);
-      File testEnvDir = new File(testEnvDirPath);
+      String path = String.format("src/main/resources/%s", testEnvName);
+      log.info("path : {}",path);
+
+      File testEnvDir = new File(path);
 
       for (File file : testEnvDir.listFiles()) {
-        Config childConfig = ConfigFactory.load(String.format("%s/%s", testEnv, file.getName()));
+        String envFilePath = String.format("%s/%s", testEnvName, file.getName());
+        log.info("envFilePath : {}",envFilePath);
+        Config childConfig = ConfigFactory.load(envFilePath);
         config = config.withFallback(childConfig);
       }
       return config;

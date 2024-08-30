@@ -17,6 +17,10 @@
         <maven-site-plugin>4.0.0-M16</maven-site-plugin>
         <maven-surefire-report-plugin>3.5.0</maven-surefire-report-plugin>
         <junit-jupiter-version>5.10.2</junit-jupiter-version>
+        <lombok-version>1.18.34</lombok-version>
+        <slf4j-version>2.0.16</slf4j-version>
+        <log4j-version>2.23.1</log4j-version>
+
     </properties>
 
     <dependencies>
@@ -26,6 +30,28 @@
             <version>${junit-jupiter-version}</version>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok-version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-reload4j -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-reload4j</artifactId>
+            <version>${slf4j-version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j-version}</version>
+        </dependency>
+
+
+
     </dependencies>
     <build>
         <plugins>

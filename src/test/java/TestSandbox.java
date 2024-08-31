@@ -1,42 +1,44 @@
 
+import annotations.FlakyTest;
+import annotations.SmokeTest;
 import com.typesafe.config.Config;
+import config.TestEnvFactory;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.RepeatedTest;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.mycompany.config.TestEnvFactory;
+import annotations.FailingTest;
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @Slf4j
 public class TestSandbox {
-  final Config CONFIG = TestEnvFactory.getInstance().getConfig();
-
   @Test
   void assertThatWeCanGetUserConfig() {
-    log.info(CONFIG.getString("TEST_ENV"));
-    log.info(CONFIG.getString("CREATE_EMPLOYEE_ENDPOINT"));
-    log.info(CONFIG.getString("ADMIN_LOGIN"));
-    log.info(CONFIG.getString("ADMIN_NAME"));
 
-    log.info(String.valueOf(CONFIG.getBoolean("TOGGLE")));
-    log.info(String.valueOf(CONFIG.getInt("NUM_OF_USERS")));
-    log.info(String.valueOf(CONFIG.getDouble("PRICE")));
+
+    final Config CONFIG = TestEnvFactory.getInstance().getConfig();
+    assertAll("Config Test",
+      ()->assertEquals("DEVELOP",CONFIG.getString("TEST_ENV"),"TEST_ENV"),
+      ()->assertEquals("/employee/create",CONFIG.getString("CREATE_EMPLOYEE_ENDPOINT"),"CREATE_EMPLOYEE_ENDPOINT"),
+      ()->assertEquals("develop-admin_login",CONFIG.getString("ADMIN_LOGIN"),"ADMIN_LOGIN"),
+      ()->assertEquals("develop-admin-name",CONFIG.getString("ADMIN_NAME"),"ADMIN_NAME"),
+      ()->assertEquals(false,CONFIG.getBoolean("TOGGLE"),"TOGGLE"),
+      ()->assertEquals(10,CONFIG.getInt("NUM_OF_USERS"),"NUM_OF_USERS"),
+      ()->assertEquals(123.456,CONFIG.getDouble("PRICE"),"PRICE")
+    );
   }
 
-  @Test
+  @SmokeTest
   void assertThatTrueIsTrue() {
     assertTrue(true, "true is true");
   }
 
-  @Tag("failing")
-  @Test
+  @FailingTest
   void assertThatDayIsADay() {
     assertEquals("day", "night", "day is a day");
   }
 
-  @Tag("flaky")
-  @Test
+  @FlakyTest
   void createFlakyTest() {
     long currentTimeStamp = System.currentTimeMillis();
     log.info("currentTimeStamp : {}",currentTimeStamp);

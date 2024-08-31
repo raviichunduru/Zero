@@ -31,6 +31,7 @@ on:
           - 'smoke'
           - 'failing'
           - 'flaky'
+          - 'flaky, failing'
       test-environment:
         description: 'Test Environment'
         required: false

@@ -16,10 +16,10 @@ public class TestSandbox {
   void assertThatWeCanGetUserConfig() {
     final Config CONFIG = TestEnvFactory.getInstance().getConfig();
     assertAll("Config Test",
-      ()->assertEquals("DEVELOP",CONFIG.getString("TEST_ENV"),"TEST_ENV"),
+      ()->assertEquals("STAGING",CONFIG.getString("TEST_ENV"),"TEST_ENV"),
       ()->assertEquals("/employee/create",CONFIG.getString("CREATE_EMPLOYEE_ENDPOINT"),"CREATE_EMPLOYEE_ENDPOINT"),
-      ()->assertEquals("develop-admin_login",CONFIG.getString("ADMIN_LOGIN"),"ADMIN_LOGIN"),
-      ()->assertEquals("develop-admin-name",CONFIG.getString("ADMIN_NAME"),"ADMIN_NAME"),
+      ()->assertEquals("staging-admin_login",CONFIG.getString("ADMIN_LOGIN"),"ADMIN_LOGIN"),
+      ()->assertEquals("staging-admin-name",CONFIG.getString("ADMIN_NAME"),"ADMIN_NAME"),
       ()->assertEquals(false,CONFIG.getBoolean("TOGGLE"),"TOGGLE"),
       ()->assertEquals(10,CONFIG.getInt("NUM_OF_USERS"),"NUM_OF_USERS"),
       ()->assertEquals(123.456,CONFIG.getDouble("PRICE"),"PRICE")

@@ -1,0 +1,50 @@
+# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-maven
+
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+name: trigger-tests-manually
+
+on:
+  workflow_dispatch:
+    inputs:
+      tags-of-tests-to-include:
+        description: 'Tags of tests to include'
+        required: false
+        default: 'failing'
+        type: choice
+        options:
+          - ''   # include all
+          - 'smoke'
+          - 'failing'
+          - 'flaky'
+      tags-of-tests-to-exclude:
+        description: 'Tags of tests to exclude'
+        required: false
+        default: 'failing'
+        type: choice
+        options:
+          - '' # exclude nothing
+          - 'smoke'
+          - 'failing'
+          - 'flaky'
+      test-environment:
+        description: 'Test Environment'
+        required: false
+        default: 'STAGING'
+        type: choice
+        options:
+          - 'STAGING'
+          - 'DEVELOP'
+
+jobs:
+  call-tests-on-pull-request:
+    uses: ./.github/workflows/run-tests-template.yml
+    with:
+      tags-of-tests-to-include: ${{inputs.tags-of-tests-to-include}}
+      tags-of-tests-to-exclude: ${{inputs.tags-of-tests-to-exclude}}
+      test-environment: ${{inputs.test-environment}}
+    secrets: inherit

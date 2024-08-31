@@ -10,7 +10,7 @@ on:
       tags-of-tests-to-exclude:
         required: false
         type: string
-        default: "flaky,failing"
+        default: "flaky, failing"
 
 jobs:
   run-tests:
@@ -30,4 +30,4 @@ jobs:
         env:
           GIT_CRYPT_KEY: ${{ secrets.GIT_CRYPT_KEY }}
       - name: Build with Maven
-        run: mvn clean test -DexcludedGroups=${{ inputs.tags-of-tests-to-exclude}} -Dgroups=${{ inputs.tags-of-tests-to-include}}
+        run: mvn clean test -DexcludedGroups="${{ inputs.tags-of-tests-to-exclude}}" -Dgroups="${{ inputs.tags-of-tests-to-include}}"

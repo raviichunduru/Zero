@@ -13,6 +13,7 @@ on:
   # * is a special character in YAML so you have to quote this string
   # to set a new schedule, refer https://crontab.guru/)
   # use https://savvytime.com/converter/utc-to-ist to get UTC equivalent time for your timezone
+  
   - cron: '45 8 1 * *' # At 08:45 on 1st day of every month
   - cron: '0 8 * * mon' # At 08:00 on every Monday
   - cron: '00/15 * * * *' # At every 15th minute from 0 through 59

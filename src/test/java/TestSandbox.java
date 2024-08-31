@@ -14,8 +14,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class TestSandbox {
   @Test
   void assertThatWeCanGetUserConfig() {
-
-
     final Config CONFIG = TestEnvFactory.getInstance().getConfig();
     assertAll("Config Test",
       ()->assertEquals("DEVELOP",CONFIG.getString("TEST_ENV"),"TEST_ENV"),

@@ -6,15 +6,15 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: trigger-tests-on-pull-request
+name: trigger-tests-on-merge-to-main
 
 on:
-  pull_request:
+  push:
     branches: [ main ]
 
 jobs:
-  call-tests-on-pull-request:
+  call-tests-merge-to-main:
     uses: ./.github/workflows/run-tests-template.yml
     with:
-      tags-of-tests-to-include: "smoke"
+      tags-of-tests-to-include: ""
     secrets: inherit

@@ -34,7 +34,7 @@ on:
 
 jobs:
   call-tests-on-pull-request:
-    uses: ./run-tests-template.yml
+    uses: .github/workflows/run-tests-template.yml
     with:
       tags-of-tests-to-include: "smoke"
     secrets: inherit

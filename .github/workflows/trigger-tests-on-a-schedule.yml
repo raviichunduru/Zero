@@ -16,7 +16,6 @@ on:
   
   - cron: '45 8 1 * *' # At 08:45 on 1st day of every month
   - cron: '0 8 * * mon' # At 08:00 on every Monday
-  - cron: '00/15 * * * *' # At every 15th minute from 0 through 59
 
 jobs:
   call-tests-on-a-schedule:

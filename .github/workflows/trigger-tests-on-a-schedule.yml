@@ -1,0 +1,27 @@
+# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-maven
+
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+name: trigger-tests-on-a-schedule
+
+on:
+  schedule:
+  # * is a special character in YAML so you have to quote this string
+  # to set a new schedule, refer https://crontab.guru/)
+  # use https://savvytime.com/converter/utc-to-ist to get UTC equivalent time for your timezone
+  
+  - cron: '45 8 1 * *' # At 08:45 on 1st day of every month
+  - cron: '0 8 * * mon' # At 08:00 on every Monday
+  - cron: '00/15 * * * *' # At every 15th minute from 0 through 59
+
+jobs:
+  call-tests-on-a-schedule:
+    uses: ./.github/workflows/run-tests-template.yml
+    with:
+      tags-of-tests-to-include: "" #-Dgroups="" means include all groups/tags
+      tags-of-tests-to-exclude: "" #-DexcludedGroups="" means exclude none of groups/tests
+    secrets: inherit

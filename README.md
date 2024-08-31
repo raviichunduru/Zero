@@ -19,9 +19,9 @@ for any/and all kind of test automation frameworks (such as API, Browser, Mobile
     - To install pre-commit Do below steps (as a one time activity).
     - Short version
         - Open terminal
-        - Install [pre-commit](https://pre-commit.com/) (a hooks package manager).
+        - Install [pre-commit](https://pre-commit.com/) (a hooks config manager).
             - If on mac, install using: `brew install pre-commit`
-            - If on windows, install using pip (python package manager).
+            - If on windows, install using pip (python config manager).
                 - Install python and pip first if not intalled already.
                 - Then run `pip install pre-commit`
         - Check pre-commit version by running: `pre-commit --version`

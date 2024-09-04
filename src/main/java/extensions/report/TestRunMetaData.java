@@ -23,7 +23,7 @@ public class TestRunMetaData {
   private static final String PROJECT = "zero";
   private static final Config CONFIG = TestEnvFactory.getInstance().getConfig();
 
-  private static final String USER_NAME = System.getProperty("user.name");
+  //private static final String USER_NAME = System.getProperty("user.name");
   private static final String RUN_TIME = LocalDateTime.now(ZoneId.of("UTC")).toString();
   private static final String RUN_NAME = getRunName();
   private static final String TRIGGERED_BY = getTriggeredBy();
@@ -59,7 +59,7 @@ public class TestRunMetaData {
     project = PROJECT;
 
     runTime = RUN_TIME;
-    runName = USER_NAME;
+    runName = RUN_NAME;
 
     testClass = context.getTestClass().orElseThrow().getSimpleName();
     testName = context.getDisplayName();

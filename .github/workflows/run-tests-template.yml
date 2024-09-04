@@ -40,4 +40,10 @@ jobs:
         env:
           GIT_CRYPT_KEY: ${{ secrets.GIT_CRYPT_KEY }}
       - name: Build with Maven
-        run: mvn clean test -DexcludedGroups="${{ inputs.tags-of-tests-to-exclude}}" -Dgroups="${{ inputs.tags-of-tests-to-include}}" -DTEST_ENV="${{inputs.test-environment}}" -DTRIGGERED_BY="${{ github.event_name }}" -DRUN_NAME="${{ inputs.run-name }}"
+        run: >
+          mvn clean test
+          -DexcludedGroups="${{ inputs.tags-of-tests-to-exclude}}"
+          -Dgroups="${{ inputs.tags-of-tests-to-include}}"
+          -DTEST_ENV="${{inputs.test-environment}}"
+          -DTRIGGERED_BY="${{ github.event_name }}"
+          -DRUN_NAME="${{ inputs.run-name }}"

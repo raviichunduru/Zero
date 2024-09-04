@@ -3,11 +3,12 @@ import com.typesafe.config.Config;
 import config.TestEnvFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Tag;
+import setup.TestSetup;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @Tag("employee-service")
 @Slf4j
-public class TestEmployeeService {
+public class TestEmployeeService extends TestSetup {
   @SmokeTest
   void assertThatTestForChosenEnvRuns() {
     Config CONFIG = TestEnvFactory.getInstance().getConfig();

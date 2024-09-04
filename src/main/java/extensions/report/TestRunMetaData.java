@@ -24,10 +24,8 @@ public class TestRunMetaData {
   private static final Config CONFIG = TestEnvFactory.getInstance().getConfig();
 
   private static final String USER_NAME = System.getProperty("user.name");
-
   private static final String RUN_TIME = LocalDateTime.now(ZoneId.of("UTC")).toString();
-
-  //private static final String RUN_NAME = getRunName();
+  private static final String RUN_NAME = getRunName();
   private static final String TRIGGERED_BY = getTriggeredBy();
 
   /**
@@ -104,10 +102,11 @@ public class TestRunMetaData {
     }
   }
 
- /* private static String getRunName() {
+  private static String getRunName() {
     if (CONFIG.getString("RUN_NAME").isEmpty()) {
       return Faker.instance().funnyName().name();
     } else {
       return CONFIG.getString("RUN_NAME");
-    }*/
+    }
   }
+}

@@ -3,15 +3,21 @@ import annotations.FlakyTest;
 import annotations.SmokeTest;
 import com.typesafe.config.Config;
 import config.TestEnvFactory;
+import extensions.ReportingExtension;
+import extensions.TimingExtension;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import annotations.FailingTest;
+import org.junit.jupiter.api.extension.ExtendWith;
+import setup.TestSetup;
+
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+
 @Slf4j
-public class TestSandbox {
+public class TestSandbox extends TestSetup {
   @Test
   void assertThatWeCanGetUserConfig() {
     final Config CONFIG = TestEnvFactory.getInstance().getConfig();

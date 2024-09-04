@@ -1,4 +1,5 @@
-version: '3.6'
+# use this to spin up elasticsearch containers with secure connections
+version: '2.2'
 
 services:
   elasticsearch:

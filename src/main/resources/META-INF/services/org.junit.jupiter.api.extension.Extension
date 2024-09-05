@@ -1,0 +1,3 @@
+extensions.TimingExtension
+extensions.ReportingExtension
+extensions.TestRunExtension

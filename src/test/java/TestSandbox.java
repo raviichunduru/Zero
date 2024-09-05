@@ -30,6 +30,7 @@ public class TestSandbox extends TestSetup {
       ()->assertEquals(10,CONFIG.getInt("NUM_OF_USERS"),"NUM_OF_USERS"),
       ()->assertEquals(123.456,CONFIG.getDouble("PRICE"),"PRICE")
     );
+
   }
 
   @SmokeTest

@@ -19,8 +19,6 @@ public class TestRunExtension implements BeforeAllCallback, ExtensionContext.Sto
 
         // Add your database connection pool setup here.
         // DBConnectionPool.getInstance().setup();
-
-
       }
     }
     catch (Exception e){

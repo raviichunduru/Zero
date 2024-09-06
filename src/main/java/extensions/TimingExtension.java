@@ -33,4 +33,3 @@ public class TimingExtension implements BeforeTestExecutionCallback, AfterTestEx
     testExecutionTimeThread.set(duration);
   }
 }
-

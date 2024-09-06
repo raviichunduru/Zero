@@ -38,7 +38,7 @@ public class TestSandbox {
   @FailingTest
   void assertThatDayIsADay() {
 
-    assertEquals("day", "night", "day is a day");
+    assertEquals("day", "night", "day is a  day");
   }
 
   @FlakyTest

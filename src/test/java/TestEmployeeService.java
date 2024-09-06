@@ -13,7 +13,5 @@ public class TestEmployeeService {
   void assertThatTestForChosenEnvRuns() {
     Config CONFIG = TestEnvFactory.getInstance().getConfig();
     String expectedEnv = CONFIG.getString("TEST_ENV");
-    log.info("expectedEnv is : {}", expectedEnv);
-    assertEquals(expectedEnv, CONFIG.getString("TEST_ENV"), "TEST_ENV");
-  }
-}
+log.info("expectedEnv is : {}", expectedEnv);assertEquals(expectedEnv, CONFIG.getString("TEST_ENV"), "TEST_ENV");
+  }}

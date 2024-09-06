@@ -3,6 +3,7 @@ package extensions.report;
 import co.elastic.clients.transport.TransportUtils;
 import com.typesafe.config.Config;
 import config.TestEnvFactory;
+import javax.net.ssl.SSLContext;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.Header;
 import org.apache.http.HttpHost;
@@ -11,7 +12,6 @@ import org.apache.http.auth.UsernamePasswordCredentials;
 import org.apache.http.impl.client.BasicCredentialsProvider;
 import org.apache.http.message.BasicHeader;
 import org.elasticsearch.client.RestClient;
-import javax.net.ssl.SSLContext;
 
 @Slf4j
 public class ElasticLowLevelRestClientFactory {
@@ -29,9 +29,9 @@ public class ElasticLowLevelRestClientFactory {
         return getRestClientForLocalhostHTTP();
       default:
         throw new IllegalStateException(
-          String.format(
-            "%s is not a valid HOST choice. Pick your HOST from %s.",
-            ELASTIC_SERVER, java.util.Arrays.asList(ElasticServerChoices.values())));
+            String.format(
+                "%s is not a valid HOST choice. Pick your HOST from %s.",
+                ELASTIC_SERVER, java.util.Arrays.asList(ElasticServerChoices.values())));
     }
   }
 
@@ -41,15 +41,15 @@ public class ElasticLowLevelRestClientFactory {
     final String ELASTIC_API_KEY = CONFIG.getString("ON_CLOUD.ELASTIC_API_KEY");
 
     Header[] headers =
-      new Header[] {
-        new BasicHeader("Accept", "application/json"),
-        new BasicHeader("Authorization", "ApiKey " + ELASTIC_API_KEY)
-      };
+        new Header[] {
+          new BasicHeader("Accept", "application/json"),
+          new BasicHeader("Authorization", "ApiKey " + ELASTIC_API_KEY)
+        };
 
     // tag::create-secure-client-fingerprint
     return RestClient.builder(new HttpHost(ELASTIC_HOST, ELASTIC_PORT, "https")) // <3>
-      .setDefaultHeaders(headers)
-      .build();
+        .setDefaultHeaders(headers)
+        .build();
   }
 
   // For elastic version >=8, default mode is HTTPS. Versions less than 8 have default mode HTTP.
@@ -58,7 +58,7 @@ public class ElasticLowLevelRestClientFactory {
     final int ELASTIC_PORT = CONFIG.getInt("ON_LOCALHOST_INSECURE.ELASTIC_PORT");
 
     return RestClient.builder(new HttpHost(ELASTIC_HOST, ELASTIC_PORT, "http")) // <3>
-      .build();
+        .build();
   }
 
   // For elastic version >=8, default mode is HTTPS. Versions less than 8 have default mode HTTP.
@@ -74,13 +74,13 @@ public class ElasticLowLevelRestClientFactory {
     final String ELASTIC_PASSWORD = CONFIG.getString("ON_LOCALHOST_SECURE.ELASTIC_PASSWORD");
     BasicCredentialsProvider credsProv = new BasicCredentialsProvider(); // <2>
     credsProv.setCredentials(
-      AuthScope.ANY, new UsernamePasswordCredentials(ELASTIC_LOGIN, ELASTIC_PASSWORD));
+        AuthScope.ANY, new UsernamePasswordCredentials(ELASTIC_LOGIN, ELASTIC_PASSWORD));
 
     return RestClient.builder(new HttpHost(ELASTIC_HOST, ELASTIC_PORT, "https")) // <3>
-      .setHttpClientConfigCallback(
-        hc ->
-          hc.setSSLContext(sslContext) // <4>
-            .setDefaultCredentialsProvider(credsProv))
-      .build();
+        .setHttpClientConfigCallback(
+            hc ->
+                hc.setSSLContext(sslContext) // <4>
+                    .setDefaultCredentialsProvider(credsProv))
+        .build();
   }
 }

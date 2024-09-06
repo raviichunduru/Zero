@@ -12,7 +12,8 @@ import org.junit.jupiter.api.extension.ExtensionContext;
 public class ReportingExtension implements AfterEachCallback {
 
   private static final Config CONFIG = TestEnvFactory.getInstance().getConfig();
-  private static final Boolean PUBLISH_RESULTS_TO_ELASTIC = CONFIG.getBoolean("PUBLISH_RESULTS_TO_ELASTIC");
+  private static final Boolean PUBLISH_RESULTS_TO_ELASTIC =
+      CONFIG.getBoolean("PUBLISH_RESULTS_TO_ELASTIC");
 
   @Override
   public void afterEach(ExtensionContext context) throws Exception {

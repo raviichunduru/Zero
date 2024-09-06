@@ -7,22 +7,21 @@ import co.elastic.clients.transport.ElasticsearchTransport;
 import co.elastic.clients.transport.rest_client.RestClientTransport;
 import com.typesafe.config.Config;
 import config.TestEnvFactory;
+import java.io.IOException;
 import lombok.extern.slf4j.Slf4j;
 import org.elasticsearch.client.RestClient;
-import java.io.IOException;
 
 @Slf4j
 public class PublishResults {
   private static final Config CONFIG = TestEnvFactory.getInstance().getConfig();
-  private static final ElasticServerChoices ELASTIC_SERVER = CONFIG.getEnum(ElasticServerChoices.class, "ELASTIC_SERVER");
+  private static final ElasticServerChoices ELASTIC_SERVER =
+      CONFIG.getEnum(ElasticServerChoices.class, "ELASTIC_SERVER");
 
   private static final ElasticsearchClient elasticsearchClient = getElasticHighLevelRestApiClient();
 
   public static void toElastic(TestRunMetaData testRunMetaData) throws IOException {
-    IndexResponse response = elasticsearchClient.index(i -> i
-      .index("zero-1")
-      .document(testRunMetaData)
-    );
+    IndexResponse response =
+        elasticsearchClient.index(i -> i.index("zero-1").document(testRunMetaData));
 
     log.info("Indexed with version " + response.version());
   }
@@ -34,7 +33,8 @@ public class PublishResults {
     RestClient restClient = ElasticLowLevelRestClientFactory.getRestClient(ELASTIC_SERVER);
 
     // Create the transport with a Jackson mapper
-    ElasticsearchTransport transport = new RestClientTransport(restClient, new JacksonJsonpMapper());
+    ElasticsearchTransport transport =
+        new RestClientTransport(restClient, new JacksonJsonpMapper());
 
     // And create the API client
     return new ElasticsearchClient(transport);

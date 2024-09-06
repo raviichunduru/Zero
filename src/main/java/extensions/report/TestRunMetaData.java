@@ -4,10 +4,10 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.javafaker.Faker;
 import com.typesafe.config.Config;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
 import config.TestEnvFactory;
 import extensions.TimingExtension;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,7 +23,7 @@ public class TestRunMetaData {
   private static final String PROJECT = "zero";
   private static final Config CONFIG = TestEnvFactory.getInstance().getConfig();
 
-  //private static final String USER_NAME = System.getProperty("user.name");
+  // private static final String USER_NAME = System.getProperty("user.name");
   private static final String RUN_TIME = LocalDateTime.now(ZoneId.of("UTC")).toString();
   private static final String RUN_NAME = getRunName();
   private static final String TRIGGERED_BY = getTriggeredBy();

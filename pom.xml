@@ -27,8 +27,6 @@
         <rest-assured-version>5.5.0</rest-assured-version>
         <elasticsearch-java-version>8.15.0</elasticsearch-java-version>
         <jakarta.json-api>2.0.1</jakarta.json-api>
-
-
     </properties>
 
     <dependencies>
@@ -136,4 +134,3 @@
         </plugins>
     </reporting>-->
 </project>
-

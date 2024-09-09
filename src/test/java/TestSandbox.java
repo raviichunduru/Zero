@@ -12,9 +12,11 @@ import org.junit.jupiter.api.Test;
 
 @Slf4j
 public class TestSandbox {
+  final Config CONFIG = TestEnvFactory.getInstance().getConfig();
+
   @Test
   void assertThatWeCanGetUserConfig() {
-    final Config CONFIG = TestEnvFactory.getInstance().getConfig();
+
     assertAll(
         "Config Test",
         () -> assertEquals("STAGING", CONFIG.getString("TEST_ENV"), "TEST_ENV"),

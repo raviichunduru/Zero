@@ -30,7 +30,7 @@ for any/and all kind of test automation frameworks (such as API, Browser, Mobile
         - That's it! From now on if you try to push any unformatted code to GitHub, pre-commit hook will both format the code
           and show the changed file for you to stage and commit.
     - For longer version:
-        - Read [README-CODE-FORMATTING.md](./README-CODE-FORMATTING.md)
+        - Read [README-CODE-FORMATTING.md](./docs/README-CODE-FORMATTING.md)
 
 ## Working principles
 

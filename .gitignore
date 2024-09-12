@@ -1,41 +1,20 @@
-target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+# Ignore all .idea files
+.idea
 
-### IntelliJ IDEA ###
-.idea/modules.xml
-.idea/jarRepositories.xml
-.idea/compiler.xml
-.idea/libraries/
-*.iws
-*.iml
-*.ipr
+# Ignore all uninterested files
+notes.txt
 
-### Eclipse ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
+# Ignore target
+target
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
+# Ignore git crypt key (in a real production world scenario).
+# I am not ingoring it here since its an open source project and anyone who wants to clone the project would need this
+# key to work with. Ideally, if you were working in a company, this key would be preserved in a password manager such
+# as 1password from where everyone could download and decrypt files.
+# git-crypt-key-zero
 
-### VS Code ###
-.vscode/
-
-### Mac OS ###
+# Ignore mac file
 .DS_Store
 
-# Ignore git-crypt key
-git-crypt-key-zero
+# Ignore .cache files
+.cache

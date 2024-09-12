@@ -123,14 +123,14 @@
             </plugin>
         </plugins>
     </build>
-    <!--<reporting>
+    <reporting>
         <plugins>
-            &lt;!&ndash; https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-report-plugin &ndash;&gt;
+            <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-report-plugin -->
             <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-report-plugin</artifactId>
                     <version>${maven-surefire-report-plugin}</version>
             </plugin>
         </plugins>
-    </reporting>-->
+    </reporting>
 </project>

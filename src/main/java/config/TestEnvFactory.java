@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class TestEnvFactory {
 
+  // this object will be created during compile time
   private static final TestEnvFactory UNIQUE_INSTANCE = new TestEnvFactory();
   private Config config;
 
